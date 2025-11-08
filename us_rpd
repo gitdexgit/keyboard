@@ -1,5 +1,5 @@
 // Real Programmer Dvorak layout
-// Based on the layout by Roland Kaufmann
+// Based on the layout by Roland Kaufmann - CORRECTED
 
 default partial alphanumeric_keys
 xkb_symbols "rpd" {
@@ -21,7 +21,7 @@ xkb_symbols "rpd" {
     key <AE09> { [ bracketright,          9 ] };
     key <AE10> { [     asterisk,          0 ] };
     key <AE11> { [       exclam,    percent ] };
-    key <AE12> { [          bar,      grave ] };
+    key <AE12> { [     asterisk,     exclam ] }; // FIX: Was [ bar, grave ], should be [* !]
 
     key <AD01> { [    semicolon,      colon ] };
     key <AD02> { [        comma,       less ] };
@@ -34,7 +34,7 @@ xkb_symbols "rpd" {
     key <AD09> { [            r,          R ] };
     key <AD10> { [            l,          L ] };
     key <AD11> { [        slash,   question ] };
-    key <AD12> { [           at, asciicircum] };
+    key <AD12> { [           at,  backslash ] }; // FIX: Was [ at, asciicircum ], should be [@ \]
 
     key <AC01> { [            a,          A ] };
     key <AC02> { [            o,          O ] };
@@ -48,7 +48,7 @@ xkb_symbols "rpd" {
     key <AC10> { [            s,          S ] };
     key <AC11> { [        minus, underscore ] };
 
-    key <LSGT> { [    backslash, numbersign ] };
+    key <LSGT> { [    backslash,          bar ] }; // FIX: Was [ backslash, numbersign ], should be [\ |]
     key <AB01> { [   apostrophe,   quotedbl ] };
     key <AB02> { [            q,          Q ] };
     key <AB03> { [            j,          J ] };
@@ -59,5 +59,7 @@ xkb_symbols "rpd" {
     key <AB08> { [            w,          W ] };
     key <AB09> { [            v,          V ] };
     key <AB10> { [            z,          Z ] };
+
+    key <BKSL> { [        slash, numbersign ] }; // FIX: Add missing key above Enter for [/ #]
 
 };
