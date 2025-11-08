@@ -113,40 +113,14 @@ xkb_symbols "rpd" {
     setxkbmap us
     ```
 
-## Usage: Creating Aliases for Quick Switching
+## Aliases
 
-To make switching between layouts fast and easy, you can create aliases in your shell's configuration file.
+To make the switching seemless you can create you own aliases in your .zshrc or .bashrc:
 
-1.  Open your shell's config file (e.g., `~/.zshrc` for Zsh or `~/.bashrc` for Bash).
-    ```bash
-    # For Zsh:
-    nano ~/.zshrc
+for me I have the following alias: 
 
-    # For Bash:
-    nano ~/.bashrc
-    ```
-
-2.  Add the following lines to the end of the file:
-    ```bash
-    # My custom keyboard layout aliases
-    alias dvp='setxkbmap us_rpd'
-    alias qwerty='setxkbmap us'
-    alias fr='setxkbmap fr'
-    alias ara='setxkbmap ara'
-    ```
-
-3.  Apply the changes to your current terminal session:
-    ```bash
-    # For Zsh:
-    source ~/.zshrc
-
-    # For Bash:
-    source ~/.bashrc
-    ```
-4.  Now you can switch layouts instantly from the command line:
-    -   `dvp` - Activates Real Programmer Dvorak
-    -   `qwerty` - Activates standard US QWERTY
-    -   `fr` - Activates the French layout
-    -   `ara` - Activates the Arabic layout
-
-
+```bash
+alias \00.='setxkbmap -layout us'
+alias \01.='setxkbmap -layout fr'
+alias \04.='setxkbmap us_rpd'
+```
