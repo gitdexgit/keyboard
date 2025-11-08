@@ -6,11 +6,11 @@ the keyboard can be found int https://github.com/ThePrimeagen/keyboards
 
 here is a picture of the keyboard withiout shift:
 
-https://i.imgur.com/fsE7SUR.png
 
+![With no Shift](./noshift.png)
 with shift:
 
-https://i.imgur.com/IqESbIw.png
+![With Shift](./shift.png)
 
 
 
