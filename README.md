@@ -1,4 +1,3 @@
-```markdown
 # Custom Real Programmer Dvorak XKB Layout for Linux from the primegen in xkb
 
 This repository contains the XKB symbol file for the "Real Programmer Dvorak" keyboard layout, configured for Linux systems running X11. 
@@ -150,5 +149,4 @@ To make switching between layouts fast and easy, you can create aliases in your 
     -   `fr` - Activates the French layout
     -   `ara` - Activates the Arabic layout
 
-```
 
