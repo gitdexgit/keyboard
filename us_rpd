@@ -4,7 +4,7 @@
 default partial alphanumeric_keys
 xkb_symbols "rpd" {
 
-    name[Group1]= "English (US, Real Programmer Dvorak)";
+    name[Group1]= "Real Programmer Dvorak";
 
     // Inherit from the base US layout to get modifier keys, etc.
     include "us(basic)"
@@ -34,7 +34,7 @@ xkb_symbols "rpd" {
     key <AD09> { [            r,          R ] };
     key <AD10> { [            l,          L ] };
     key <AD11> { [        slash,   question ] };
-    key <AD12> { [           at,  backslash ] }; 
+    key <AD12> { [           at, asciicircum] }; 
     key <AC01> { [            a,          A ] };
     key <AC02> { [            o,          O ] };
     key <AC03> { [            e,          E ] };
