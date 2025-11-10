@@ -1,4 +1,19 @@
-# Custom Real Programmer Dvorak XKB Layout for Linux from the primegen in xkb
+# There are many ways to get this but here are the best 2 ways you can achieve this:
+
+
+1) If you are on wayland or you are a person who has many xbindkeys and keyboard shortcuts I advise you
+to use keyd. Pleas read keyd github. I think the best solution regardless is keyd. I advise you to use keyd.
+everything you need is in /etc/keyd/default.conf just 1 file. copy it to your /etc/keyd/default.conf
+
+
+
+
+2) If you are on X11 using us_rpd file following the intstructions bellow:
+
+
+
+
+## Custom Real Programmer Dvorak XKB Layout for Linux from the primegen in xkb
 
 This repository contains the XKB symbol file for the "Real Programmer Dvorak" keyboard layout, configured for Linux systems running X11. 
 
