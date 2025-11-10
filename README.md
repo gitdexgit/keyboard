@@ -1,8 +1,12 @@
 Big thanks to ThePrimegen for getting us to know about Dvorak.
 
-# Eazy setup for the costum "Real Programmer Dvorak" XKB Layout for Linux, the one the primegen used from the primegen github turned into an xkb
+# Eazy setup for the costum "Real Programmer Dvorak" for Linux, the one the primegen used from the primegen github turned into a keyd/default.conf and xkb
 
-This is dvorak but just the numbers `1234567890-= which have the following symbols ~!@#$%^&*()_+ have been modified to have the symbols $+[{(&=)}]*!|. 
+- **What is "Real Programmer Dvorak"?**
+
+if you run in your linux `setxkbmap us -variant dvorak` and type numbers they are like qwerty SO --> This is just dvorak, but just the numbers `1234567890-= which have the following symbols ~!@#$%^&*()_+ have been modified to have the symbols $+[{(&=)}]*!|. For that "Real Programmer Dvorak"
+
+- **Description about the repo**
 
 This repository contains the keyd/default.conf configuration and XKB symbol file for the "Real Programmer Dvorak" keyboard layout, configured for Linux systems. 
 
