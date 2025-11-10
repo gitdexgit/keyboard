@@ -1,13 +1,38 @@
-# There are many ways to get this but here are the best 2 ways you can achieve this:
+Big thanks to ThePrimegen for getting us to know about Dvorak.
+
+# Eazy setup for the costum "Real Programmer Dvorak" XKB Layout for Linux, the one the primegen used from the primegen github turned into an xkb
+
+This is dvorak but just the numbers `1234567890-= which have the following symbols ~!@#$%^&*()_+ have been modified to have the symbols $+[{(&=)}]*!|. 
+
+This repository contains the keyd/default.conf configuration and XKB symbol file for the "Real Programmer Dvorak" keyboard layout, configured for Linux systems. 
+
+The keyboard can be found in https://github.com/ThePrimeagen/keyboards
+
+Here is the keyboard picture bellow with and without shift:
+
+The real programmer dvorak **withiout shift**:
+
+![With no Shift](./noshift.png)
+
+( yes I get it if you need numbers you hit shift+symbol it's meant that way )
+
+wThe real programmer dvorak **with shift**:
+
+![With Shift](./shift.png)
+
+
+( if you don't like how it's meant, use keyd to bypass the limit and add more ergonomic flixable solutions, My personal customized version of The Real Programmer Dvorak is all in my huge keyd config that has more than 2k configs. If you are interested check it out in gitdexgit/arch_dex)
+
+## There are many ways to get this but here are the best 2 ways you can achieve this:
 
 
 1) If you are on wayland or you are a person who has many xbindkeys and keyboard shortcuts I advise you
 to use keyd. Pleas read keyd github. I think the best solution regardless is keyd. I advise you to use keyd.
 everything you need is in /etc/keyd/default.conf just 1 file. copy it to your /etc/keyd/default.conf
 
-# (Recommended) for keyd installation
+### (Recommended) for keyd installation
 
-## gitting keyd
+#### gitting keyd
 
 1) visit keyd github -->  https://github.com/rvaiya/keyd
 
@@ -57,21 +82,7 @@ everything you need is in /etc/keyd/default.conf just 1 file. copy it to your /e
 
 # (Not recommended) xkb dvorak setup
 
-## Custom Real Programmer Dvorak XKB Layout for Linux, the one the primegen used from the primegen github turned into an xkb
-
-The primary goal is to have a single, self-contained file that can be easily deployed on a new system without modif modfying complex system XML rules, making it a robust and portable solution.
-
-This repository contains the XKB symbol file for the "Real Programmer Dvorak" keyboard layout, configured for Linux systems running X11. 
-
-the keyboard can be found int https://github.com/ThePrimeagen/keyboards
-
-here is a picture of the keyboard withiout shift:
-
-
-![With no Shift](./noshift.png)
-with shift:
-
-![With Shift](./shift.png)
+The primary goal here is to have a single, self-contained file that can be easily deployed on a new system without modif modfying complex system XML rules or installing anything, making it a robust and portable solution. on all linux X11 OSs.
 
 
 ---
