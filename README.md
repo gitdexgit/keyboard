@@ -68,7 +68,7 @@ everything you need is in /etc/keyd/default.conf just 1 file. copy it to your /e
 
 2.  **Copy the /etc/keyd/default.conf File**
 
-    Copy the `us_rpd` file from this repository to the system's XKB symbols directory.
+    Copy the `us_rpd` file from this repository to the system's /etc/keyd directory.
 
     ```bash
     sudo cp /etc/keyd/default.conf /etc/keyd/
