@@ -13,7 +13,7 @@ everything you need is in /etc/keyd/default.conf just 1 file. copy it to your /e
 
 
 
-## Custom Real Programmer Dvorak XKB Layout for Linux from the primegen in xkb
+## Custom Real Programmer Dvorak XKB Layout for Linux, the one the primegen used from the primegen github turned into an xkb
 
 This repository contains the XKB symbol file for the "Real Programmer Dvorak" keyboard layout, configured for Linux systems running X11. 
 
