@@ -1,0 +1,1152 @@
+# /etc/keyd/default.conf
+
+
+# An alternative to the xkb and alias things is keyd you can put a switch in this config
+# and then switch to it for example via capslock+q as shown bellow:
+
+# Please go to keyd's github repo for more further informatin about keyd and how to set it up
+
+
+# Bellow is a sample of how you can do it:
+
+# And why we are doing it this way so that other programs work very well they think it's qwerty which means
+# their default configs and everything works flawlessly. as opposed to a variant. If you have used xkb dvork
+# or theprimegen's dvork through that xmodmap you will know what I mean by defaults of programs not working
+
+# Also, You still have qwerty whenever you want to. You can chose to put dvork on [main] if you no longer care about qwerty
+# this way every time keyd is ran (after reboot) you always have dvork.
+
+
+
+# <MANDATORY>
+[ids]
+# The id of the keyboard that keyd will affect. which means you can have a 2nd 
+# keyboard and not include it in here and it will act ok.
+# I do not know if I can make certain id behave differently like in AHI library
+# in AHK. 
+
+# <PLEASE BELLOW PUT YOUR KEYBOARD ID FOR FURTHER INFORMATION TO HOW TO DO THAT VISIT KEYD GITHUB>
+# I think this one is for my bluetooth keyboard
+# #<This is my main keyboard>
+248a:00da
+
+# <PLEASE BELLOW PUT YOUR KEYBOARD ID FOR FURTHER INFORMATION TO HOW TO DO THAT VISIT KEYD GITHUB>
+# I think this one is for my red cheap gaming old keyboard
+# # <This is my 2nd keyboard that I never use just giving examples, this means if you disable it your 2nd keyboard will be and behave normally nothing in this config will apply to it>
+0001:0001
+
+
+# (Optional)
+# If you enable global enable the (optional) rightshift leftshift bellow
+[global]
+# for further information read `man keyd` [global] section.
+
+# (Optional) This is sugguestion to improve your typing speed time until a oneshot will stop being oneshot
+oneshot_timeout = 565
+
+# (Optional) This is sugguestion to improve your typing speed 
+overload_tap_timeout = 188
+
+
+
+
+
+
+
+[main]
+
+# enables extend
+capslock = overload(extend, escape)
+
+
+# Ez one taps
+# enables shifts to have taps
+leftshift = overload(shift,oneshot(shift))
+rightshift = overload(shift,oneshot(shift))
+leftmeta = overload(meta,oneshot(meta))
+leftcontrol = overload(control,oneshot(control))
+leftalt = overload(alt,oneshot(alt))
+
+
+
+# Ez shift
+# I like righalt to be a like shift this way I don't need to run capslock 
+# rightalt = overload(rightalt_symbols, oneshot(rightalt_symbols))
+rightalt = overload(shift, oneshot(shift))
+
+
+
+
+# Ez symbols
+space+rightalt = layer(rightalt_symbols)
+rightmeta = overload(rightalt_symbols,oneshot(rightalt_symbols))
+
+# Ez numbers
+# enables space_typist
+# notice it has a nice delay do it doesn't disturbe spacebar when hitting space.
+# only when holding will space_typist work
+space = overloadt(space_typist, space, 160)
+
+[extend]
+
+# toggles between (dvorak and qwerty)
+q = toggle(dvorak)
+
+#QoL
+
+semicolon = backspace
+l = space
+' = capslock
+
+
+
+[dvorak]
+
+# making shifts for dvorak
+leftalt = overload(dvork_alt,oneshot(alt))
+
+# do I need to specify a [meta] I can just use the meta? no ? and it's gg?
+# yes I do I can't make meta you now it would solve the problem but like... it will screw it up
+# Unless I want to go all in dvork which will make the default qwerty have this problem so I guess to solve it
+# I have to just double tap and hod I guess 
+leftmeta = overload(dvork_meta,oneshot(dvork_meta))
+leftcontrol = overload(dvork_leftcontrol,oneshot(dvork_leftcontrol))
+leftshift = overload(dvorak_shift,oneshot(dvorak_shift))
+rightshift = overload(dvorak_shift,oneshot(dvorak_shift))
+# rightalt = layer(dvorak_shift_rightalt)
+# Double tap doesn't work with this guy because I have it for like alt tab... so the user me, must 100% use win for moving and resizing windwos I guess
+rightalt = overload(dvorak_shift_rightalt,oneshot(dvorak_shift_rightalt))
+
+# mimic 90% of core space_typist for dvorak
+space = overloadt(dvorak_space_typist, space, 160)
+
+
+
+# dvorak keyboard
+` = $
+1 = +
+2 = [
+3 = {
+4 = (
+5 = &
+6 = =
+7 = )
+8 = }
+9 = ]
+0 = *
+- = !
+= = |
+q = ;
+w = ,
+e = .
+r = p
+t = y
+y = f 
+u = g 
+i = c 
+o = r 
+p = l 
+[ = / 
+] = @ 
+a = a 
+s = o
+d = e
+f = u 
+g = i  
+h = d  
+j = h  
+k = t 
+l = n  
+; = s  
+' = - 
+\ = \ 
+z = '
+x = q 
+c = j  
+v = k  
+b = x  
+n = b  
+m = m  
+, = w   
+. = v  
+/ = z 
+
+
+# Fixing meta
+[dvork_meta]
+
+# Have to add this for the mouse so the user has to tap meta 2 time and hold at 2nd tap for holding leftmeta
+leftmeta = leftmeta
+
+leftshift = layer(dvork_meta_shift)
+leftcontrol = layer(dvork_meta_control)
+
+f1  = M-f1  
+f2  = M-f2  
+f3  = M-f3  
+f4  = M-f4  
+f5  = M-f5  
+f6  = M-f6  
+f7  = M-f7  
+f8  = M-f8  
+f9  = M-f9  
+f10 = M-f10 
+f11 = M-f11 
+f12 = M-f12 
+` = M-`
+1 = M-1
+2 = M-2
+3 = M-3
+4 = M-4
+5 = M-5
+6 = M-6
+7 = M-7
+8 = M-8
+9 = M-9
+0 = M-0
+- = M--
+= = M-=
+q = M-;
+w = M-,
+e = M-.
+r = M-p
+t = M-y
+y = M-f 
+u = M-g 
+i = M-c 
+o = M-r 
+p = M-l 
+[ = M-/ 
+] = M-@ 
+a = M-a 
+s = M-o
+d = M-e
+f = M-u 
+g = M-i  
+h = M-d  
+j = M-h  
+k = M-t 
+l = M-n  
+; = M-s  
+' = M-- 
+\ = M-\ 
+z = M-'
+x = M-q 
+c = M-j  
+v = M-k  
+b = M-x  
+n = M-b  
+m = M-m  
+, = M-w   
+. = M-v  
+/ = M-z 
+
+
+[dvork_meta_control_shift]
+
+f1  = M-S-C-f1  
+f2  = M-S-C-f2  
+f3  = M-S-C-f3  
+f4  = M-S-C-f4  
+f5  = M-S-C-f5  
+f6  = M-S-C-f6  
+f7  = M-S-C-f7  
+f8  = M-S-C-f8  
+f9  = M-S-C-f9  
+f10 = M-S-C-f10 
+f11 = M-S-C-f11 
+f12 = M-S-C-f12 
+q = M-S-C-;
+w = M-S-C-,
+e = M-S-C-.
+r = M-S-C-p
+t = M-S-C-y
+y = M-S-C-f 
+u = M-S-C-g 
+i = M-S-C-c 
+o = M-S-C-r 
+p = M-S-C-l 
+[ = M-S-C-/ 
+] = M-S-C-@ 
+a = M-S-C-a 
+s = M-S-C-o
+d = M-S-C-e
+f = M-S-C-u 
+g = M-S-C-i  
+h = M-S-C-d  
+j = M-S-C-h  
+k = M-S-C-t 
+l = M-S-C-n  
+; = M-S-C-s  
+' = M-S-C-- 
+\ = M-S-C-\ 
+z = M-S-C-'
+x = M-S-C-q 
+c = M-S-C-j  
+v = M-S-C-k  
+b = M-S-C-x  
+n = M-S-C-b  
+m = M-S-C-m  
+, = M-S-C-w   
+. = M-S-C-v  
+/ = M-S-C-z 
+
+
+[dvork_meta_control]
+
+leftshift = layer(dvork_meta_control_shift)
+
+f1  = M-C-f1  
+f2  = M-C-f2  
+f3  = M-C-f3  
+f4  = M-C-f4  
+f5  = M-C-f5  
+f6  = M-C-f6  
+f7  = M-C-f7  
+f8  = M-C-f8  
+f9  = M-C-f9  
+f10 = M-C-f10 
+f11 = M-C-f11 
+f12 = M-C-f12 
+q = M-C-;
+w = M-C-,
+e = M-C-.
+r = M-C-p
+t = M-C-y
+y = M-C-f 
+u = M-C-g 
+i = M-C-c 
+o = M-C-r 
+p = M-C-l 
+[ = M-C-/ 
+] = M-C-@ 
+a = M-C-a 
+s = M-C-o
+d = M-C-e
+f = M-C-u 
+g = M-C-i  
+h = M-C-d  
+j = M-C-h  
+k = M-C-t 
+l = M-C-n  
+; = M-C-s  
+' = M-C-- 
+\ = M-C-\ 
+z = M-C-'
+x = M-C-q 
+c = M-C-j  
+v = M-C-k  
+b = M-C-x  
+n = M-C-b  
+m = M-C-m  
+, = M-C-w   
+. = M-C-v  
+/ = M-C-z 
+
+
+[dvork_meta_shift]
+
+leftcontrol = layer(dvork_meta_control_shift)
+
+f1  = M-S-f1  
+f2  = M-S-f2  
+f3  = M-S-f3  
+f4  = M-S-f4  
+f5  = M-S-f5  
+f6  = M-S-f6  
+f7  = M-S-f7  
+f8  = M-S-f8  
+f9  = M-S-f9  
+f10 = M-S-f10 
+f11 = M-S-f11 
+f12 = M-S-f12 
+q = M-S-;
+w = M-S-,
+e = M-S-.
+r = M-S-p
+t = M-S-y
+y = M-S-f 
+u = M-S-g 
+i = M-S-c 
+o = M-S-r 
+p = M-S-l 
+[ = M-S-/ 
+] = M-S-@ 
+a = M-S-a 
+s = M-S-o
+d = M-S-e
+f = M-S-u 
+g = M-S-i  
+h = M-S-d  
+j = M-S-h  
+k = M-S-t 
+l = M-S-n  
+; = M-S-s  
+' = M-S-- 
+\ = M-S-\ 
+z = M-S-'
+x = M-S-q 
+c = M-S-j  
+v = M-S-k  
+b = M-S-x  
+n = M-S-b  
+m = M-S-m  
+, = M-S-w   
+. = M-S-v  
+/ = M-S-z 
+
+
+[dvork_alt]
+
+f1  = A-f1  
+f2  = A-f2  
+f3  = A-f3  
+f4  = A-f4  
+f5  = A-f5  
+f6  = A-f6  
+f7  = A-f7  
+f8  = A-f8  
+f9  = A-f9  
+f10 = A-f10 
+f11 = A-f11 
+f12 = A-f12 
+` = A-`
+1 = A-1
+2 = A-2
+3 = A-3
+4 = A-4
+5 = A-5
+6 = A-6
+7 = A-7
+8 = A-8
+9 = A-9
+0 = A-0
+- = A--
+= = A-=
+q = A-;
+w = A-,
+e = A-.
+r = A-p
+t = A-y
+y = A-f 
+u = A-g 
+i = A-c 
+o = A-r 
+p = A-l 
+[ = A-/ 
+] = A-@ 
+a = A-a 
+s = A-o
+d = A-e
+f = A-u 
+g = A-i  
+h = A-d  
+j = A-h  
+k = A-t 
+l = A-n  
+; = A-s  
+' = A-- 
+\ = A-\ 
+z = A-'
+x = A-q 
+c = A-j  
+v = A-k  
+b = A-x  
+n = A-b  
+m = A-m  
+, = A-w   
+. = A-v  
+/ = A-z 
+
+
+
+[dvork_control]
+
+leftcontrol = leftcontrol
+
+f1  = C-f1  
+f2  = C-f2  
+f3  = C-f3  
+f4  = C-f4  
+f5  = C-f5  
+f6  = C-f6  
+f7  = C-f7  
+f8  = C-f8  
+f9  = C-f9  
+f10 = C-f10 
+f11 = C-f11 
+f12 = C-f12 
+` = C-`
+1 = C-1
+2 = C-2
+3 = C-3
+4 = C-4
+5 = C-5
+6 = C-6
+7 = C-7
+8 = C-8
+9 = C-9
+0 = C-0
+- = C--
+= = C-=
+q = C-;
+w = C-,
+e = C-.
+r = C-p
+t = C-y
+y = C-f 
+u = C-g 
+i = C-c 
+o = C-r 
+p = C-l 
+[ = C-/ 
+] = C-@ 
+a = C-a 
+s = C-o
+d = C-e
+f = C-u 
+g = C-i  
+h = C-d  
+j = C-h  
+k = C-t 
+l = C-n  
+; = C-s  
+' = C-- 
+\ = C-\ 
+z = C-'
+x = C-q 
+c = C-j  
+v = C-k  
+b = C-x  
+n = C-b  
+m = C-m  
+, = C-w   
+. = C-v  
+/ = C-z 
+
+
+[dvorak_shift_rightalt]
+
+
+
+rightalt = space
+
+
+# but it has this for flexibility
+
+# this is stupid because... imaigng I have to type in like capatals and has spaces to type
+# space = layer(dvorak_space_typist_symbols)
+
+
+# basically copy paste of shift as you can see bellow
+
+p = L
+y = F
+f = U
+g = I
+c = J
+r = P
+l = N
+; = S
+, = W
+. = V
+/ = Z
+
+
+
+a = A
+o = R
+u = G
+i = C
+d = E
+h = D
+t = Y
+n = B
+s = O
+
+j = H
+k = T
+x = Q
+b = X
+m = M
+v = K
+
+
+` = ~
+1 = 1
+2 = 2
+3 = 3
+4 = 4
+5 = 5
+6 = 6
+7 = 7
+8 = 8
+9 = 9
+0 = 0
+- = %
+= = `
+
+
+
+
+[ = ?
+] = ^
+\ = # 
+' = _
+z = "
+q = :
+w = <
+e = >
+
+
+
+
+
+[dvorak_shift]
+
+f1  = S-f1  
+f2  = S-f2  
+f3  = S-f3  
+f4  = S-f4  
+f5  = S-f5  
+f6  = S-f6  
+f7  = S-f7  
+f8  = S-f8  
+f9  = S-f9  
+f10 = S-f10 
+f11 = S-f11 
+f12 = S-f12 
+
+
+
+p = L
+y = F
+f = U
+g = I
+c = J
+r = P
+l = N
+; = S
+, = W
+. = V
+/ = Z
+
+
+
+a = A
+o = R
+u = G
+i = C
+d = E
+h = D
+t = Y
+n = B
+s = O
+
+j = H
+k = T
+x = Q
+b = X
+m = M
+v = K
+
+
+` = ~
+1 = 1
+2 = 2
+3 = 3
+4 = 4
+5 = 5
+6 = 6
+7 = 7
+8 = 8
+9 = 9
+0 = 0
+- = %
+= = `
+
+
+[ = ?
+] = ^
+\ = # 
+' = _
+z = "
+q = :
+w = <
+e = >
+
+
+
+
+[dvorak_space_typist]
+
+
+u = backspace
+
+# these are meant for space_typist you need to fix them for dvorak
+
+
+e = overload(dvorak_shift,oneshot(dvorak_shift))
+i = overload(dvorak_shift,oneshot(dvorak_shift))
+
+
+# these are meant for space_typist you need to fix them for dvorak
+w = swap(rightalt_symbols)
+
+
+
+# This enables me doing the ctl+1234 tab cycling really fast for terminal tabs, hitting it again makes me go to space_typist again
+t = swap(t_control_layer)
+
+# This enables me doing the alt+1234 tmux tab cycling really fast for tmux tabs, hitting it again makes me go to space_typist again
+r = swap(r_alt_layer)
+
+# makes it flexable with core extend
+# capslock = layer(extend)
+# we made it feasible only from the capslock perspective
+capslock = $
+
+
+
+# this makes it me to core rightalt_symbols for symbols works seamlessly with space_typist
+leftshift = swap(rightalt_symbols)
+# the one bellow is an upgraded version that taps and is flexable at the same time
+rightalt = overload(rightalt_symbols, oneshot(rightalt_symbols))
+
+z = "
+
+# enter = |
+# still thinking
+# capslock = swap(win_shift_shortcut_space)
+# This is stupid and I don't ltlike 
+# This is stupid with left meta
+# but I like the idea of leftmeta for something 
+# leftmeta = swap(win_shift_shortcut)
+# like moving the mouse maybe ? that's cool right? 
+compose = swap(window_management)
+
+# this makes way more sense
+leftalt = swap(move_to_desktops)
+# Yep with rightmeta it's gg
+leftmeta = swap(win_shift_shortcut)
+rightmeta = swap(space_numlock)
+
+# This one is nice but I do not use it mate lol I like alt+tab as is.. so make 
+# space+tab something else
+tab = A-tab
+
+m = enter
+x = delete
+
+
+
+# This is a macro to bring the openbox context menu and to to send to desktop really fast
+b = macro(A-space 55ms down right up)
+
+# This is a macro to bring the openbox context menu for always on top
+y = macro(A-space 55ms down down right)
+
+# This is for copyq for the trey
+v = macro(M-v)
+
+# This is for tigervnc for full screen
+n = macro(f8 f)
+
+o = space
+
+p = right 
+
+
+
+` = ~
+1 = 1
+2 = 2
+3 = 3
+4 = 4
+5 = 5
+6 = 6
+7 = 7
+8 = 8
+9 = 9
+0 = 0
+- = %
+= = `
+
+
+a = 1
+s = 2
+d = 3
+f = 4
+g = 5
+h = 6
+j = 7
+k = 8
+l = 9
+; = 0
+' = !
+\ = |
+
+
+# core
+[space_typist]
+
+
+# This enables me doing the ctl+1234 tab cycling really fast for terminal tabs, hitting it again makes me go to space_typist again
+t = swap(t_control_layer)
+
+# This enables me doing the alt+1234 tmux tab cycling really fast for tmux tabs, hitting it again makes me go to space_typist again
+r = swap(r_alt_layer)
+
+# makes it flexable with core extend
+# capslock = layer(extend)
+# we made it feasible only from the capslock perspective
+capslock = `
+
+# this makes it me to core rightalt_symbols for symbols works seamlessly with space_typist
+# just keep it shift simple
+# leftshift = swap(rightalt_symbols)
+# the one bellow is an upgraded version that taps and is flexable at the same time
+rightmeta = overload(rightalt_symbols, oneshot(rightalt_symbols))
+rightalt = overload(rightalt_symbols, oneshot(rightalt_symbols))
+
+
+
+
+z = "
+
+# enter = |
+# still thinking
+# capslock = swap(win_shift_shortcut_space)
+# This is stupid and I don't ltlike 
+# This is stupid with left meta
+# but I like the idea of leftmeta for something 
+# leftmeta = swap(win_shift_shortcut)
+# like moving the mouse maybe ? that's cool right? 
+compose = swap(window_management)
+
+# this makes way more sense
+leftalt = swap(move_to_desktops)
+# Yep with rightmeta it's gg
+leftmeta = swap(win_shift_shortcut)
+# screw rightmeta here it's a waste... for numlock math thing..... why even bother just use the numlock... but still
+# I'll change it to a different key
+# rightmeta = swap(space_numlock)
+
+# # I have capslock+' that does that anyways So I changed it to numlock... maybe I need numlock... for now I don't need it so that you know
+# # goonight mouse works fine but you know but I do like still like doing math with numblock maybe I should learn to use calculator with only
+# # space bar combo whatever the heck keyd is. that would make it nicer true no numclokc
+# c = swap(space_numlock)
+
+# This leftfor nothign I already have this with capslock so this is for what ? 
+# leftmeta = swap(extend)
+
+
+# this is stuppid 
+# but I like the idea of hitting rightmeta for something it's too slow tho and sluggish and ugly
+# rightmeta = toggle(rightalt_symbols)
+
+
+# This is stupid I don't like it so I won't use it 
+# rightshift = overload(shift,oneshot(shift))
+# rightshift = backspace
+# leftshift = space
+
+# let's try this now it makes sense left shift it deletes things on the left right shift it adds space to the right it makes sense
+# rightshift = space
+
+# make window bellow
+# I really want to make this leftmouse click
+# this is really stupid I never use this 
+# I don't want to send window bellow with f1
+# f1 = C-A-q
+
+# gaming 
+# f1 = leftmouse
+# switch to preview window 
+# I really want to make this rightmouse click
+# this is really stupid I never use this 
+# f2 = macro(C-S-M-A-tab)
+
+# gaming
+# f2 = rightmouse
+# move mosue left and right
+# I already have this in my capslock
+# f3 = M--
+# f4 = M-=
+# warpd I already have that in my capslock
+# f5 = M-A-x
+# f6 = M-A-c
+# f7 = M-A-g
+
+# minus = {
+# equal = }
+
+# this is so stupid I never use it I think I need to think of a better option man not this bs 
+# enter = | 
+# 7 = | 
+# 8 = :
+# 6 = "
+# 5 = '
+
+
+# this is really 
+# 1 = '
+# 4 = ?
+
+# this is really stupid but fine
+# this is so far away this is worth something unique like a switch or something
+#grave = ~
+# u = backspace
+# u = backspace
+
+# e = overload(shift,oneshot(shift))
+# i = overload(shift,oneshot(shift))
+i = backspace
+
+w = swap(rightalt_symbols)
+
+# just git good this is space+o+capsclock = ~ and then release and then do / easy ~/ 
+# p = macro(~/)
+
+# p = ;
+# t = :
+# p = ~     
+
+# This is for Dvorak
+# this is the trade off
+\ = =
+# THis is what it used to be:
+# This is for qwerty we have been using this for a long time but it's time to change it 
+# \ = =
+
+# This is for Dvorak
+apostrophe = -
+# This is what it used to be but we gotta change it for Dvorak sadly
+# apostrophe = -
+
+# now that I have dvorak in like keyd I no longer need the kp bs
+a = 1
+s = 2
+d = 3
+f = 4
+g = 5
+h = 6
+j = 7
+k = 8
+l = 9
+semicolon = 0
+
+grave = ~
+1 = S-1
+2 = S-2
+3 = S-3
+4 = S-4
+5 = S-5
+6 = S-6
+7 = S-7
+8 = S-8
+9 = S-9
+0 = S-0
+minus = S-minus
+equal = S-equal
+
+# This one is nice but I do not use it mate lol I like alt+tab as is.. so make 
+# space+tab something else
+tab = A-tab
+
+m = enter
+x = delete
+
+
+
+# This is a macro to bring the openbox context menu and to to send to desktop really fast
+b = macro(A-space 55ms down right up)
+
+# This is a macro to bring the openbox context menu for always on top
+y = macro(A-space 55ms down down right)
+
+# This is for copyq for the trey
+v = macro(M-v)
+
+# This is for tigervnc for full screen
+n = macro(f8 f)
+
+o = space
+
+p = right 
+
+
+
+
+# c = f12
+# q = C-grave
+
+
+# n = M-A-c
+
+# stupid you already have it in F6 and f5
+# warpd
+# n = M-A-c
+
+# it just rymes with m n and b
+# but tbh I don't care about spacebar but whatever it's just there as an option. I can always just hit space like remove my hand and just hit space dah
+# b = C-a
+
+# comma = macro(C-S-M-A-tab)
+# leftalt = macro(C-S-M-A-tab)
+# compose = calc
+
+
+# # I have capslock+' that does that anyways So I changed it to numlock... maybe I need numlock... for now I don't need it so that you know
+# # goonight mouse works fine but you know but I do like still like doing math with numblock maybe I should learn to use calculator with only
+# # space bar combo whatever the heck keyd is. that would make it nicer true no numclokc
+# c = swap(space_numlock)
+
+
+# Symbols Mode
+[rightalt_symbols]
+
+enter = \
+
+
+
+# rightmeta = toggle(rightalt_symbols)
+# rightalt = toggle(rightalt_symbols)
+leftalt = macro(C-S-M-A-tab)
+
+# All in one line baby, no seemless switching 
+capslock = ~
+
+# seamlessly switch to core space_typist
+space = overload(rightalt_symbols_shift, oneshot(rightalt_symbols_shift))
+# Yeah I know unlike in space_typist where rightalt has what bellow. this doesn't work sadly that would be sick but it dones't work with space.
+# space = overload(space_typist, oneshot(space_typist)
+
+#### WHATEVER BEELLOW NEEDS A REMAP EXCEPT THE HOME ROW ###!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+[ = /
+] = @
+
+# ()
+p = macro([ ] left)
+0 = macro([ ] space)
+
+# [] 
+# o = macro(( ) left)
+o = space
+i = backspace
+9 = macro(( ) space)
+
+# {} 
+# i = macro({ } left)
+# 8 = macro({ } space)
+
+# 8 = macro({ } left 20ms enter 20ms enter 200ms backspace 500ms tab)
+8 = macro({ } left enter 20ms backspace 20ms up 20ms right enter)
+
+
+
+# <> 
+u = macro(< > left)
+7 = macro(< > space)
+
+
+# "" 
+q = ;
+1 = macro(" " space)
+
+# '' 
+w = ,
+2 = macro(' ' space)
+
+# ``
+# e = macro(` ` left)
+e = .
+3 = macro(` ` space)
+
+# some handy ones
+4 = macro(/ * * space enter * space enter */ up)
+
+5 = macro(#!/bin/bash enter enter backspace enter)
+
+6 = macro(!== space)
+
+
+
+
+minus = macro(?? space)
+equal = macro(== space)
+grave = macro(""" """ left left left enter enter up tab)
+f4 = macro(/// space <summary> enter enter /// space </summary> up /// space )
+f2 = macro(/ * enter space * enter * / up)
+f3 = macro(< ! - - enter enter - - > up tab)
+
+# Arrow function =>: Very common in modern languages. Let's put it on y.
+y = macro(space = > space)
+
+# Pointer/return type arrow ->: Common in C/C++/Go/PHP. Let's put it on t.
+t = macro(space - > space)
+
+# Pipe operator |>: Common in functional languages. Let's put it on r.
+r = macro(space | > space)
+
+
+#====== bottom row =======
+
+# AND
+z = `
+
+# OR
+x = macro(| | space)
+
+# Making these more accessable
+comma = <
+dot = >
+
+# Less than or equal <=: Let's use c.
+c = macro(< = space)
+
+# Greater than or equal >=: Let's use v.
+v = macro(> = space)
+tab = `
+
+# Other operators
+
+# Pipe |: The single pipe is also very common. Let's put it on b.
+b = macro(| space)
+
+# Not equals !=: Let's put it on n.
+n = macro(! = space)
+
+# Strict equals ===: Let's put it on m.
+m = macro(= = = space)
+
+# Comments: The slash key is here. A common action is to type // and a space.
+slash = macro(/ / space)
+
+
+
+
+# # I moved this one to capslock
+# f12 = command(sudo -u dex -H /home/dex/scripts/dex_session_launcher.sh keyd reload)
+
+# space = macro(~/)
+
+
+# home row centric ergonomic <-- main
+
+# This is for dvorak
+a = macro(+) 
+s = macro([)
+d = macro({)
+f = macro(()
+g = macro(&)
+h = macro(=)
+j = macro())
+k = macro(})
+l = macro(])
+' = macro(%)
+semicolon = macro(*)
+\ = macro(`)
+
+
