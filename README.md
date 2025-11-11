@@ -82,6 +82,12 @@ everything you need is in /etc/keyd/default.conf just 1 file. copy it to your /e
     keyd reload
     ```
 
+And that's it, I recommend you read default.conf it's so simple and easy config.
+If you are looking to improve your default.conf even further and make it more ergonomic with 
+changes that make sense and modern. look for samples or use the `/etc/keyd/default.conf.what.i.use.bak` read the
+/etc/keyd/README.md for further information. 
+
+good luck :D with you dvorak journey.
 
 
 # (Not recommended) xkb dvorak setup
